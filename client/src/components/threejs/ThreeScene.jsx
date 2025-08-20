@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, PresentationControls } from "@react-three/drei";
 
 const Laptop = (props) => {
-  const { scene } = useGLTF(`laptop.glb`);
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}laptop.glb`);
   return <primitive object={scene} {...props} />;
 };
 
