@@ -3,12 +3,12 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, PresentationControls } from "@react-three/drei";
 
 const Laptop = (props) => {
-  const { scene } = useGLTF("/laptop.glb");
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}laptop.glb`);
   return <primitive object={scene} {...props} />;
 };
 
 const LogoText = (props) => {
-  const { scene } = useGLTF("/logo.glb");
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}logo.glb`);
   const ref = useRef();
 
   useFrame((state) => {
