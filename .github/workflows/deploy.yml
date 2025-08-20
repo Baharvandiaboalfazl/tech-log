@@ -1,0 +1,56 @@
+# نام گردش کار
+name: Deploy Frontend to GitHub Pages
+
+# این اکشن زمانی اجرا می‌شود که به شاخه main پوش شود
+on:
+  push:
+    branches: ["main"]
+
+# دسترسی‌های لازم برای دیپلوی
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# تعریف جاب‌ها (کارها)
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # ۱. کدها را از ریپازیتوری دریافت می‌کند
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ۲. نود جی‌اس را نصب می‌کند
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # ۳. پکیج‌های فرانت‌اند را نصب می‌کند
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ./client # ‼️ مهم: مشخص می‌کند که دستور در پوشه client اجرا شود
+
+      # ۴. پروژه را بیلد می‌کند
+      - name: Build Project
+        run: npm run build
+        working-directory: ./client # ‼️ مهم: مشخص می‌کند که دستور در پوشه client اجرا شود
+        env:
+          # آدرس بک‌اند را از Secrets گیت‌هاب می‌خواند
+          VITE_API_URL: ${{ secrets.RAILWAY_BACKEND_URL }}
+
+      # ۵. صفحات گیت‌هاب را کانفیگ می‌کند
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # ۶. فایل‌های بیلد شده را برای آپلود آماده می‌کند
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./client/dist" # ‼️ مهم: مسیر پوشه بیلد فرانت‌اند را مشخص می‌کند
+
+      # ۷. پروژه را روی گیت‌هاب پیجز دیپلوی می‌کند
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
