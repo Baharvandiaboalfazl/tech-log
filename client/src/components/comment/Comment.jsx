@@ -31,7 +31,7 @@ const Comment = ({ comment, onLike, onReply, onEdit, onDelete }) => {
       <div className="flex-1">
         <div className="flex items-center mb-1">
           <span className="font-bold mr-1 text-xs truncate text-gray-800 dark:text-gray-200">
-            {comment.userId ? `@${comment.userId.username}` : "کاربر حذف شده"}
+            {comment.userId ? `@${comment.userId.username}` : "کاربر حذف شده!"}
           </span>
           <span className="text-gray-500 dark:text-gray-400 text-xs ml-2">
             {moment(comment.createdAt).fromNow()}
