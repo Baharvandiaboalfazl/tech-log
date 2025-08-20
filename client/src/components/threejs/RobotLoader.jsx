@@ -6,7 +6,7 @@ import { BackgroundBeamsWithCollision } from "../ui/BackgroundBeams";
 
 function Model(props) {
   const group = useRef();
-  const { scene, animations } = useGLTF("");
+  const { scene, animations } = useGLTF("https://github.com/Baharvandiaboalfazl/glb/raw/refs/heads/main/robot.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
