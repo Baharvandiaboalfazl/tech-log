@@ -8,7 +8,7 @@ const Laptop = (props) => {
 };
 
 const LogoText = (props) => {
-  const { scene } = useGLTF(`logo.glb`);
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}logo.glb`);
   const ref = useRef();
 
   useFrame((state) => {
