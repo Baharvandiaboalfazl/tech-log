@@ -1,6 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
-import logger from "redux-logger";
 
 import storage from "redux-persist/lib/storage";
 import userReducer from "./user/userSlice";
@@ -27,18 +26,12 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = [];
-
-if (process.env.NODE_ENV === "development") {
-  middlewares.push(logger);
-}
-
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat(middlewares),
+    }),
 });
 
 export const persistor = persistStore(store);
