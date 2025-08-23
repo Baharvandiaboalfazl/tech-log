@@ -1,9 +1,9 @@
 import { motion, useScroll } from "framer-motion";
+import InfiniteComments from "../components/ui/InfiniteComments";
 import HeroSection from "../components/header/HeroSection";
 import LastNewsSection from "../components/home/LastNewsSection";
 import PostCardSection from "../components/home/PostCardSection";
 import CategorySection from "../components/home/CategorySection";
-import InfiniteComments from "../components/ui/InfiniteComments";
 import NewsLetter from "../components/home/NewsLetter";
 import State from "../components/home/State";
 

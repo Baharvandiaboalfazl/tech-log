@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "homepage": "https://baharvandiaboalfazl.github.io/tech-log",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -35,7 +34,6 @@
     "react-router-dom": "^7.7.0",
     "react-type-animation": "^3.2.0",
     "recharts": "^3.1.0",
-    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.11",

@@ -18,13 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-const frontendURL = "https://baharvandiaboalfazl.github.io";
-
-app.use(
-  cors({
-    origin: frontendURL,
-  })
-);
+app.use(cors({}));
 
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
