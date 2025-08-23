@@ -2,10 +2,10 @@ import { Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import useAuthStatus from "./hooks/useAuthStatus";
 import Loader from "./lib/Loader";
-import RobotLoader from "./components/threejs/RobotLoader";
 import Home from "./pages/Home";
 import MainLayout from "./layouts/MainLayout";
 import NoInstagramPage from "./components/NoInstagramPage";
+import { LoaderOne } from "./components/ui/Loaders";
 
 const AboutPage = Loader(import("./pages/AboutPage"));
 const Signin = Loader(import("./pages/SignInPage"));
@@ -35,12 +35,12 @@ const App = () => {
   useAuthStatus();
 
   if (initialLoading) {
-    return <RobotLoader />;
+    return <LoaderOne />;
   }
 
   return (
     <>
-      <Suspense fallback={<RobotLoader />}>
+      <Suspense fallback={<LoaderOne />}>
         <Routes location={background || location}>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
