@@ -47,7 +47,7 @@ const Charts = ({ containerVariants, itemVariants, postStats }) => {
         className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md"
         whileHover={{ y: -5 }}
       >
-        <h3 className="text-xl font-semibold text-shadow-gray-900 dark:text-white mb-4">
+        <h3 className="text-xl font-semibold text-shadow-gray-900 dark:text-white mb-4.5">
           تعداد مقاله ها بر اساس دسته‌بندی
         </h3>
         {postStats && (
