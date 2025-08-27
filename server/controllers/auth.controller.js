@@ -146,6 +146,8 @@ export const signin = async (req, res, next) => {
       role: user.role,
     };
 
+    console.log("PAYLOAD FOR JWT:", tokenPayload); 
+
     const token = jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
       expiresIn: "1d",
     });
