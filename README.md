@@ -1,22 +1,3 @@
----
-description: تک لاگ محیطی برای پیشرفت در دنیای بزرگ تکنولوژی های جدید و برنامه نویسی
-icon: head-side-goggles
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
----
-
 # \<TechLog introduction="معرفی کلی پروژه" />
 
 **چشم‌انداز**
