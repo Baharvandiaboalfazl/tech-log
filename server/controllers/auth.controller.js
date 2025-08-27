@@ -152,10 +152,13 @@ export const signin = async (req, res, next) => {
 
     const { password: userPassword, ...rest } = user._doc;
 
+    const userWithToken = { ...rest, token };
+    
+    // .cookie("access_token", token, { httpOnly: true })
+    
     res
       .status(200)
-      .cookie("access_token", token, { httpOnly: true })
-      .json(rest);
+      .json(userWithToken);
   } catch (error) {
     next(error);
   }
